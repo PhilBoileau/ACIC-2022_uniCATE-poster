@@ -1,0 +1,61 @@
+\documentclass[20pt,a1paper,landscape]{tikzposter}
+
+% required packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+%% Available themes: see also
+%% https://bitbucket.org/surmann/tikzposter/downloads/themes.pdf
+\usetheme{Default}
+\colorlet{backgroundcolor}{white}
+
+% title information
+\title{A Flexible Approach to Predictive Biomarker Discovery}
+\author{Philippe Boileau$^1$, Nina Ting Qi$^2$, Mark J. van der Laan$^1$
+  Sandrine Dudoit$^1$, Ning Leng$^2$}
+\institute{$^1$University of California, Berkeley; $^2$Genentech Inc.}
+
+% dictate default block options
+\newcommand{\myblock}[2]{\block[titleinnersep=5mm, linewidth=1mm]{#1}{#2}}
+
+
+\begin{document}
+
+% title and graphics
+\maketitle[width=22in]
+\node[anchor=west] at (TP@title.west) {\includegraphics[width=10cm]{logos/cal}};
+\node[anchor=east] at (TP@title.east) {\includegraphics[width=10cm]{logos/cal}};
+
+\begin{columns}
+
+  \column{0.333}
+
+  \myblock{Background}{This is the background.}
+
+  \myblock{Variable Importance Parameter}{The causal and statistical models.}
+
+  \myblock{Inference}{Present semiparametric theory and estimator.}
+
+  \column{0.334}
+
+  \myblock{Simulation Study}{Here are the results of our simulation study.}
+
+  \column{0.333}
+
+  \myblock{Clinical Trial Application}{IMmotion 151 heatmaps.}
+
+  \myblock{Conclusions}{Here are the important takeaways.}
+
+  \begin{subcolumns}
+
+    \subcolumn{0.5}
+    \myblock{References}{List of references.}
+
+    \subcolumn{0.5}
+    \myblock{Funding}{Thank you for paying my bills.}
+
+  \end{subcolumns}
+
+\end{columns}
+
+\end{document}
