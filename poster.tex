@@ -2,6 +2,7 @@
 
 % required packages
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{graphicx}
 
 %% Available themes: see also
@@ -32,11 +33,72 @@
 
   \myblock{Background}{This is the background.}
 
-  \myblock{Variable Importance Parameter}{The causal and statistical models.}
+  \myblock{Variable Importance Parameter}{
+    Consider $n$ identically and independently distributed (i.i.d) full-data
+    random vectors $X = (W, A, Y^{(0)}, Y^{(1)}) \sim P_X$.
 
-  \myblock{Inference}{Present semiparametric theory and estimator.}
+    \begin{itemize}
+      \item $W$: A $p$-length random vector of centered pretreatment biomarkers
+        with nonzero variance.
+      \item $A$: A random binary indicator of treatment assignment.
+      \item $Y^{(0)}, Y^{(1)}$: Continuous potential outcomes under assignment
+        to the control and treatment allocations, respectively.
+    \end{itemize}
+
+    Our causal variable importance parameter is
+    $\Psi^F(P_X) = (\Psi_1^F(P_X), \ldots, \Psi_p^F(P_X))$, where
+    \begin{equation*}
+      \Psi_j^F(P_X) \equiv \frac{
+        \mathbb{E}_{P_X}\left[\left(Y^{(1)}-Y^{(0)}\right)W_j\right]
+        }{\mathbb{E}_{P_X}\left[W_j^2\right]}.
+    \end{equation*}
+
+    Given access instead to $n$ i.i.d. censored random observations $O = (W, A,
+    Y)$ where $Y = AY^{(1)} + (1-A)Y^{(0)}$, $\Psi^F(P_X)$ is identified under
+    the assumptions of unmeasured confounding and positivity by $\Psi(P_0) =
+    (\Psi_1(P_0), \ldots, \Psi_p(P_0))$. Here,
+    \begin{equation*}
+      \Psi_j(P_0) \equiv \frac{
+        \mathbb{E}_{P_0}\left[\left(\bar{Q}_0[A=1,W]-
+        \bar{Q}_0[A=0,W]\right)W_j\right]
+        }{\mathbb{E}_{P_0}\left[W_j^2\right]},
+    \end{equation*}
+    where $\bar{Q}_0[A,W] = \mathbb{E}_{P_0}[Y|A,W]$.
+  }
 
   \column{0.334}
+  
+  \myblock{Inference}{
+    Let $g_0(W) = \mathbb{P}[A=1|W]$, and let $\hat{g}$ and $\hat{\bar{Q}}$ be
+    estimators of $g_0$ and $\bar{Q}_0$, respectively. Define the Augmented
+    Inverse Probability Weighted outcome difference as
+    \begin{align*}
+      T(O)
+      & \equiv \left(\frac{I(A=1)}{\hat{g}(W)}
+        - \frac{I(A=0)}{1 - \hat{g}(W)}\right)
+        \left(Y-\hat{\bar{Q}}(A,W)\right) \\
+      & \qquad + \hat{\bar{Q}}(1,W)-\hat{\bar{Q}}(0, W).
+    \end{align*}
+
+    We derive from the efficient influence function of $\Psi_j(P_0)$, $D_j(O)$,
+    the double-robust one-step estimator
+    \begin{equation*}
+      \hat{\Psi}_j(P_n) \equiv \frac{\sum_{i=1}^n T(O_i) W_{ij}}
+      {\sum_{i=1}^n W_{ij}^2},
+    \end{equation*}
+    where $\sum_i W_{ij} = 0$ for all $j$ and $P_n$ is the empirical
+    distribution.
+
+    If $\hat{g}$ and $\hat{\bar{Q}}$ are trained using sample splitting
+    techniques, and we assume that $\lVert \hat{g} - g_0 \rVert_2 \lVert
+    \hat{\bar{Q}} - \bar{Q}_0\rVert_2 = o_p(n^{-1/2})$, then
+    \begin{equation*}
+      \sqrt{n}\left(\hat{\Psi}_j(P_n) - \Psi_j(P_0)\right)
+      \overset{D}{\rightarrow} N\left(0,
+      \mathbb{V}_{P_0}\left[D_j(O)\right]\right).
+    \end{equation*}
+  }
+
 
   \myblock{Simulation Study}{Here are the results of our simulation study.}
 
@@ -52,7 +114,11 @@
     \myblock{References}{List of references.}
 
     \subcolumn{0.5}
-    \myblock{Funding}{Thank you for paying my bills.}
+    \myblock{Funding}{
+      {\small PB gratefully acknowledges the support of the National Science and
+       Engineering Research Council of Canada and the Fonds de recherche du
+       Qu\'{e}bec -- Nature et technologies.}
+    }
 
   \end{subcolumns}
 
