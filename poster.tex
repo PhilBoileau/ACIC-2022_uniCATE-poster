@@ -17,8 +17,8 @@
 \institute{$^1$University of California, Berkeley; $^2$Genentech Inc.}
 
 % dictate default block options
-\newcommand{\myblock}[2]{\block[titleinnersep=5mm, linewidth=1mm]{#1}{#2}}
-
+\newcommand{\myblock}[2]{\block[titleinnersep=4mm, linewidth=1mm]{#1}{#2}}
+\newcommand{\mysmallblock}[2]{\block[titleinnersep=1mm, linewidth=1mm]{{\small #1}}{#2}}
 
 \begin{document}
 
@@ -68,7 +68,14 @@
 
   \column{0.334}
   
-  \myblock{Clinical Trial Application}{IMmotion 151 heatmaps.}
+  \myblock{Application to IMmotion 150 and 151}{
+    \vspace{-1.5em}
+    \centering
+    \begin{tikzfigure}
+      \includegraphics[width=0.295\textwidth]{graphs/heatmaps.png}
+    \end{tikzfigure}
+    \vspace{-1.5em}
+  }
   
   \myblock{Inference}{
     Let $g_0(W) = \mathbb{P}[A=1|W]$, and let $\hat{g}$ and $\hat{\bar{Q}}$ be
@@ -99,33 +106,46 @@
       \overset{D}{\rightarrow} N\left(0,
       \mathbb{V}_{P_0}\left[D_j(O)\right]\right).
     \end{equation*}
+
+    \vspace{-0.85em}
   }
 
-
+  \mysmallblock{Funding}{
+    \vspace{-0.5em}
+    {\small PB gratefully acknowledges the support of the National Science and
+      Engineering Research Council of Canada and the Fonds de recherche du
+    Qu\'{e}bec -- Nature et technologies.}
+    \vspace{-0.5em}
+  }
+  
   \column{0.333}
 
-  \myblock{Simulation Study}{Here are the results of our simulation study.}
-
-  \myblock{Conclusions}{
-    Predictive biomarker discovery in high-dimensions benefits from formal
-    statistical inference procedures that control Type-I error rates. This
-    estimator is implemented in the \texttt{uniCATE} \texttt{R} package
-    available at \texttt{github.com/insightsengineering/uniCATE}.
+  \myblock{Randomized Control Trial Simulations}{
+    \vspace{-1.5em}
+    \begin{tikzfigure}
+      \includegraphics[width=0.29\textwidth]{graphs/dgp-sketches.png}
+    \end{tikzfigure}
+    \vspace{-3.5em}
+    \begin{tikzfigure}
+      \includegraphics[width=0.29\textwidth]{graphs/classification-plot.png}
+    \end{tikzfigure}
+    \vspace{-2em}
   }
 
-  \begin{subcolumns}
-
-    \subcolumn{0.5}
-    \myblock{References}{List of references.}
-
-    \subcolumn{0.5}
-    \myblock{Funding}{
-      {\small PB gratefully acknowledges the support of the National Science and
-       Engineering Research Council of Canada and the Fonds de recherche du
-       Qu\'{e}bec -- Nature et technologies.}
-    }
-
-  \end{subcolumns}
+  \myblock{Conclusions}{
+    Predictive biomarker discovery benefits from formal statistical inference
+    procedures that control Type-I error rates. This estimator is implemented
+    in the \texttt{uniCATE} \texttt{R} package available at
+    \texttt{github.com/insightsengineering/uniCATE}.
+  }
+  
+  \mysmallblock{References}{
+    \vspace{-0.5em}
+    {\small PB gratefully acknowledges the support of the National Science and
+      Engineering Research Council of Canada and the Fonds de recherche du
+    Qu\'{e}bec -- Nature et technologies.}
+    \vspace{-0.5em}
+  }
 
 \end{columns}
 
