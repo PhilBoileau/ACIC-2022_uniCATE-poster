@@ -11,14 +11,14 @@
 \colorlet{backgroundcolor}{white}
 
 % title information
-\title{A Flexible Approach to Predictive Biomarker Discovery}
+\title{A Flexible Approach for Predictive Biomarker Discovery}
 \author{Philippe Boileau$^1$, Nina Ting Qi$^2$, Mark J. van der Laan$^1$
   Sandrine Dudoit$^1$, Ning Leng$^2$}
 \institute{$^1$University of California, Berkeley; $^2$Genentech Inc.}
 
 % dictate default block options
 \newcommand{\myblock}[2]{\block[titleinnersep=4mm, linewidth=1mm]{#1}{#2}}
-\newcommand{\mysmallblock}[2]{\block[titleinnersep=1mm, linewidth=1mm]{{\small #1}}{#2}}
+\newcommand{\mysmallblock}[2]{\block[titleinnersep=1mm, linewidth=1mm]{{\small #1}}{{\small#2\par}}}
 
 \begin{document}
 
@@ -31,7 +31,19 @@
 
   \column{0.333}
 
-  \myblock{Background}{This is the background.}
+  \myblock{Background}{
+    \begin{itemize}
+      \item Predictive biomarkers are treatment effect modifiers.
+      \item In high dimensions, these biomarkers are discovered using
+        interpretable conditional average treatment effect estimators, like the
+        modified covariates procedures of Tian et al. (2014).
+      \item These methods make simplifying assumptions about the
+        data-generating process, resulting in a lack of Type-I error rate
+        control.
+      \item High false discovery rates lead to wasted resources, negatively
+        affecting patient outcomes.
+    \end{itemize}
+  }
 
   \myblock{Variable Importance Parameter}{
     Consider $n$ identically and independently distributed (i.i.d) full-data
@@ -107,15 +119,15 @@
       \mathbb{V}_{P_0}\left[D_j(O)\right]\right).
     \end{equation*}
 
-    \vspace{-0.85em}
+    \vspace{-1em}
   }
 
   \mysmallblock{Funding}{
-    \vspace{-0.5em}
-    {\small PB gratefully acknowledges the support of the National Science and
-      Engineering Research Council of Canada and the Fonds de recherche du
-    Qu\'{e}bec -- Nature et technologies.}
-    \vspace{-0.5em}
+    \vspace{-1em}
+    PB gratefully acknowledges the support of the National Science and
+    Engineering Research Council of Canada and the Fonds de recherche du
+    Qu\'{e}bec -- Nature et technologies.
+    \vspace{-1em}
   }
   
   \column{0.333}
@@ -132,19 +144,20 @@
     \vspace{-2em}
   }
 
-  \myblock{Conclusions}{
+  \myblock{Conclusion}{
     Predictive biomarker discovery benefits from formal statistical inference
-    procedures that control Type-I error rates. This estimator is implemented
-    in the \texttt{uniCATE} \texttt{R} package available at
+    procedures that control false discovery rates. This estimator is
+    implemented in the \texttt{uniCATE} \texttt{R} package available at
     \texttt{github.com/insightsengineering/uniCATE}.
   }
   
-  \mysmallblock{References}{
-    \vspace{-0.5em}
-    {\small PB gratefully acknowledges the support of the National Science and
-      Engineering Research Council of Canada and the Fonds de recherche du
-    Qu\'{e}bec -- Nature et technologies.}
-    \vspace{-0.5em}
+  \mysmallblock{Reference}{
+    \vspace{-1em}
+    Tian et al. (2014) A Simple Method for Estimating Interactions
+    Between a Treatment and a Large Number of Covariates, Journal of the
+    American Statistical Association, 109:508, 1517-1532,
+    DOI: 10.1080/01621459.2014.951443
+    \vspace{-1em}
   }
 
 \end{columns}
