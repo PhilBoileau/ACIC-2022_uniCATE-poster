@@ -71,11 +71,11 @@
     (\Psi_1(P_0), \ldots, \Psi_p(P_0))$. Here,
     \begin{equation*}
       \Psi_j(P_0) \equiv \frac{
-        \mathbb{E}_{P_0}\left[\left(\bar{Q}_0[A=1,W]-
-        \bar{Q}_0[A=0,W]\right)W_j\right]
+        \mathbb{E}_{P_0}\left[\left(\bar{Q}_0(A=1,W)-
+        \bar{Q}_0(A=0,W)\right)W_j\right]
         }{\mathbb{E}_{P_0}\left[W_j^2\right]},
     \end{equation*}
-    where $\bar{Q}_0[A,W] = \mathbb{E}_{P_0}[Y|A,W]$.
+    where $\bar{Q}_0(A,W) = \mathbb{E}_{P_0}[Y|A,W]$.
   }
 
   \column{0.334}
@@ -90,9 +90,9 @@
   }
   
   \myblock{Inference}{
-    Let $g_0(W) = \mathbb{P}[A=1|W]$, and let $\hat{g}$ and $\hat{\bar{Q}}$ be
-    estimators of $g_0$ and $\bar{Q}_0$, respectively. Define the Augmented
-    Inverse Probability Weighted outcome difference as
+    Let $g_0(W) = \mathbb{P}_{P_0}[A=1|W]$, and let $\hat{g}$ and
+    $\hat{\bar{Q}}$ be estimators of $g_0$ and $\bar{Q}_0$, respectively.
+    Define the Augmented Inverse Probability Weighted outcome difference as
     \begin{align*}
       T(O)
       & \equiv \left(\frac{I(A=1)}{\hat{g}(W)}
